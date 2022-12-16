@@ -10,7 +10,7 @@ class Pokemon(Resource):
     class GetPokemon(Resource):
         def get(self, name):
             name = name.lower()
-            result = requests.get('https://pokeapi.co/api/v2/pokemon/?&limit=500')
+            result = requests.get('https://pokeapi.co/api/v2/pokemon/?&limit=1154')
             dados = result.json()
             listarPokemon = dados["results"]
             for pokemon in listarPokemon:
@@ -21,20 +21,8 @@ class Pokemon(Resource):
                 'error': True,
                 'msg': 'Não identifiquei este pokemon'
             }
-    
-    class abilites(Resource):
-        def get(self):
-            result = requests.get('https://pokeapi.co/api/v2/pokemon/4/')
-            dados = result.json()
-            jsonReturn = {
-                "nome": dados["abilities"][0]["ability"]["name"],
-                "url": dados["abilities"][0]["ability"]["url"],
-                "is_hidden": dados["abilities"][0]["is_hidden"],
-                "slot": dados["abilities"][0]["slot"]
-            }
-            return jsonReturn
-    
-    class Charmander2(Resource):
+        
+    class Abilites(Resource):
         def get(self, tipo):
             result = requests.get(f'https://pokeapi.co/api/v2/pokemon/{tipo}/')
             dados = result.json()
@@ -44,6 +32,4 @@ class Pokemon(Resource):
                 "is_hidden": dados["abilities"][0]["is_hidden"],
                 "slot": dados["abilities"][0]["slot"]
             }
-            return jsonReturn
-          
-            
+            return jsonReturn    
