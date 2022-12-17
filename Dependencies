@@ -1,3 +1,4 @@
 #pip install flask_restful
 #pip install flask
 #pip install requests  
+# python -m venv nome_ambiente - Criação do ambiente virtual
