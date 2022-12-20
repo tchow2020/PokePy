@@ -2,4 +2,12 @@ body {
   background-color: aqua;
   flex: 1;
   justify-content: center;
+  text-align: center;
+
+}
+
+.pokemon {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
