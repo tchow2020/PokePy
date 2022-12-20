@@ -2,11 +2,6 @@ from flask_restful import Resource
 import requests
 
 class Pokemon(Resource):
-    def get(self):
-        result = requests.get('https://pokeapi.co/api/v2/pokemon')
-        dados = result.json()
-        return dados["results"]
-
     class GetPokemon(Resource):
         def get(self, name):
             name = name.lower()
@@ -15,21 +10,28 @@ class Pokemon(Resource):
             listarPokemon = dados["results"]
             for pokemon in listarPokemon:
                 if pokemon["name"] == name:
-                    return pokemon
+                    urlPokemon = pokemon["url"]
+                    result = requests.get(urlPokemon)
+                    dados = result.json()
+                    jsonReturn = {
+                        "nome": dados["forms"][0]["name"],
+                        "ability-1": dados["abilities"][0]["ability"]["name"],
+                        "ability-2": dados["abilities"][1]["ability"]["name"]
+                    }
+                    return jsonReturn
             
-            return { 
+            return {
                 'error': True,
                 'msg': 'Não identifiquei este pokemon'
             }
         
     class Abilites(Resource):
-        def get(self, tipo):
-            result = requests.get(f'https://pokeapi.co/api/v2/pokemon/{tipo}/')
+        def get(self, url):
+            result = requests.get(url)
             dados = result.json()
             jsonReturn = {
-                "nome": dados["abilities"][0]["ability"]["name"],
-                "url": dados["abilities"][0]["ability"]["url"],
-                "is_hidden": dados["abilities"][0]["is_hidden"],
-                "slot": dados["abilities"][0]["slot"]
+                "nome": dados["forms"][0]["name"],
+                "ability-1": dados["abilities"][0]["ability"]["name"],
+                "ability-2": dados["abilities"][1]["ability"]["name"]
             }
-            return jsonReturn    
+            return jsonReturn
