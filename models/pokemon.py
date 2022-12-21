@@ -16,7 +16,8 @@ class Pokemon(Resource):
                     jsonReturn = {
                         "nome": dados["forms"][0]["name"],
                         "ability-1": dados["abilities"][0]["ability"]["name"],
-                        "ability-2": dados["abilities"][1]["ability"]["name"]
+                        "ability-2": dados["abilities"][1]["ability"]["name"],
+                        "image": dados["sprites"]["front_default"]
                     }
                     return jsonReturn
             
@@ -25,13 +26,13 @@ class Pokemon(Resource):
                 'msg': 'Não identifiquei este pokemon'
             }
         
-    class Abilites(Resource):
-        def get(self, url):
-            result = requests.get(url)
-            dados = result.json()
-            jsonReturn = {
-                "nome": dados["forms"][0]["name"],
-                "ability-1": dados["abilities"][0]["ability"]["name"],
-                "ability-2": dados["abilities"][1]["ability"]["name"]
-            }
-            return jsonReturn
+    # class Image(Resource):
+    #     def get(self, url):
+    #         result = requests.get(url)
+    #         dados = result.json()
+    #         jsonReturn = {
+    #             "nome": dados["forms"][0]["name"],
+    #             "ability-1": dados["abilities"][0]["ability"]["name"],
+    #             "ability-2": dados["abilities"][1]["ability"]["name"]
+    #         }
+    #         return jsonReturn

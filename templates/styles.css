@@ -1,13 +1,17 @@
 body {
-  background-color: aqua;
+  background-color: white;
   flex: 1;
   justify-content: center;
   text-align: center;
+}
 
+.campo{
+  background-color: aqua;
 }
 
 .pokemon {
   display: flex;
   justify-content: center;
   text-align: center;
+  padding-top: 100px;
 }
