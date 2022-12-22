@@ -1,5 +1,5 @@
 from models.pokemon import Pokemon
-from flask import Flask, render_template
+from flask import Flask
 from flask_restful import Api
 
 app = Flask(__name__)

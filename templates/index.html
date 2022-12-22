@@ -7,38 +7,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
   </head>
-  <body>
-    <div >
+  <body class="body">
+    <div>
       <form action="Buscar" method="GET">
-        <input class="campo"
-          style="border-radius: 10px; width: 115px; height: 30px"
-          placeholder="Buscar Pokemon"
-          name="nome"
-          type="text"
-        />
-        <button
-          style="border-radius: 10px; width: 70px; height: 30px"
-          type="submit"
-          name="Buscar"
-        >
-          Buscar
-        </button >
-        <div class="pokemon">
-          <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-        />
-          <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-        />
-          <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
-        />
-          <img
-          src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-        />
-
+        <div class="Buscar">
+          <input
+            style="border-radius: 10px; width: 200px; height: 30px"
+            placeholder="Buscar Pokemon"
+            name="nome"
+            type="text"
+          />
+          <button
+            class="button"
+            style="border-radius: 10px; width: 100px; height: 35px"
+            type="submit"
+          >
+            Buscar
+          </button>
         </div>
-        
+
+        <div class="cards">
+          <div>
+            <img
+              class="poke-image"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
+            />
+          </div>
+          <img
+            class="poke-image"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
+          />
+          <img
+            class="poke-image"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
+          />
+          <img
+            class="poke-image"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+          />
+        </div>
       </form>
     </div>
   </body>
