@@ -13,26 +13,44 @@ class Pokemon(Resource):
                     urlPokemon = pokemon["url"]
                     result = requests.get(urlPokemon)
                     dados = result.json()
+                   
+                    ability = []
+                    for i in dados["abilities"]:
+                        ability.append(i["ability"]["name"])
+
+                    type = []
+                    for i in dados["types"]:
+                        type.append(i["type"]["name"])
+
+                    moves = []
+                    for i in dados["moves"]:
+                       moves.append(i["move"]["name"])
+
                     jsonReturn = {
+                        "image": dados["sprites"]["front_default"],
                         "nome": dados["forms"][0]["name"],
-                        "ability-1": dados["abilities"][0]["ability"]["name"],
-                        "ability-2": dados["abilities"][1]["ability"]["name"],
-                        "image": dados["sprites"]["front_default"]
+                        "ability": ability,
+                        "types": type,
+                        "moves":moves
                     }
+
                     return jsonReturn
-            
+                  
             return {
                 'error': True,
                 'msg': 'Não identifiquei este pokemon'
             }
         
-    # class Image(Resource):
-    #     def get(self, url):
-    #         result = requests.get(url)
-    #         dados = result.json()
-    #         jsonReturn = {
-    #             "nome": dados["forms"][0]["name"],
-    #             "ability-1": dados["abilities"][0]["ability"]["name"],
-    #             "ability-2": dados["abilities"][1]["ability"]["name"]
-    #         }
-    #         return jsonReturn
+    class Homologação(Resource):
+            def get(self):
+                result = requests.get('https://pokeapi.co/api/v2/pokemon/1/')
+                dados = result.json()
+
+                moves = []
+                for i in dados["moves"]:
+                    moves.append(i["move"]["name"])
+
+                jsonReturn = {
+                    "move": moves
+                }
+                return jsonReturn

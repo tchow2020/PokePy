@@ -6,8 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(Pokemon.GetPokemon, ('/Pokemon/find/<string:name>'))
-
-# api.add_resource(Pokemon.Image ('/Pokemon/image/'))
+api.add_resource(Pokemon.Homologação, ('/Pokemon/Homologação'))
 
 if __name__ == '__main__':
     app.run(debug=True)

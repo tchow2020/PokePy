@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: black;
   flex: 1;
   justify-content: center;
   text-align: center;
@@ -15,12 +15,16 @@ body {
     margin: 15px;
 }
 
+.lupa{
+    background-color: aqua;
+}
+
 .cards{
   display: flex;
   justify-content: center;
   text-align: center;
   padding-top: 100px;
-  background-color: aqua;
+  background-color: white;
   flex-direction: row;
 }
 
@@ -28,7 +32,6 @@ body {
   align-items: center;
   margin: 10px;
   padding: 10px;
-  justify-content: space-between;
   width: 100px;
   height: 100px;
   background-color: #c4c3c1;
