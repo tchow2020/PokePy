@@ -1,25 +1,25 @@
 body {
-  background-color: black;
+  background-color: rgb(11, 169, 243);
   flex: 1;
   justify-content: center;
   text-align: center;
 }
 
-.Buscar{
+.Buscar {
   background-color: red;
   padding: 25px;
 }
 
-.button{
-    background-color: #f5a345;
-    margin: 15px;
+.button {
+  background-color: #f5a345;
+  margin: 15px;
 }
 
-.lupa{
-    background-color: aqua;
+.lupa {
+  background-color: aqua;
 }
 
-.cards{
+.cards {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -28,7 +28,7 @@ body {
   flex-direction: row;
 }
 
-.poke-image{
+.poke-image {
   align-items: center;
   margin: 10px;
   padding: 10px;

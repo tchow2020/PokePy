@@ -1,56 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokedex</title>
-  </head>
-  <body class="body">
-    <div>
-      <form action="Buscar" method="GET">
-        <div class="Buscar">
-          <input
-            style="border-radius: 10px; width: 200px; height: 30px"
-            placeholder="Buscar Pokemon"
-            name="nome"
-            type="text"
-          />
-          <button
-            class="button"
-            style="border-radius: 10px; width: 100px; height: 35px"
-            type="submit"
-          >
-            Buscar
-              <img
-                width="15px"
-                height="15px"
-                src="images/lupa.png"
-              />
-          </button>
-        </div>
 
-        <div class="cards">
-          <img
-            class="poke-image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png"
-          />
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokedex</title>
+</head>
 
-          <img
-            class="poke-image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png"
-          />
-          <img
-            class="poke-image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png"
-          />
-          <img
-            class="poke-image"
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-          />
-        </div>
-      </form>
-    </div>
-  </body>
+<body>
+  <div>
+    <form method="POST">
+      <div class="Buscar">
+        <input style="border-radius: 10px; width: 200px; height: 30px" placeholder="Buscar Pokemon" name="nome"
+          type="text" />
+        <button class="button" style="border-radius: 10px; width: 100px; height: 35px" type="submit">
+          Buscar
+          <img width="15px" height="15px" src="{{ url_for('static', filename='images/lupa.png') }}" />
+        </button>
+      </div>
+
+      {% if listAll == True %}
+      <div class="cards">
+        {% for pokemon in listPokemon %}
+        <img class="poke-image" src='{{ pokemon["image"] }}' />
+        <p>{{ pokemon["nome"] }}</p>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="cards">
+        <img class="poke-image" src='{{ listPokemon["image"] }}' />
+      </div>
+      {% endif %}
+    </form>
+  </div>
+  <!-- {{ listPokemon }} -->
+</body>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
 </html>
