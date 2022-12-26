@@ -1,4 +1,5 @@
 import requests
+from flask import url_for
 
 class PokemonF(): 
     def getPokemon(name):
@@ -34,13 +35,16 @@ class PokemonF():
 
                 return jsonReturn
                 
-        return {
+        error = {
+            'image': url_for('static', filename='images/not-found.png'),
             'error': True,
             'msg': 'Não identifiquei este pokemon'
         }
+
+        return error
     
     def getAllPokemon():
-        result = requests.get('https://pokeapi.co/api/v2/pokemon/?&limit=10')
+        result = requests.get('https://pokeapi.co/api/v2/pokemon/?&limit=3')
         dados = result.json()
         listarPokemon = dados["results"]
 
@@ -66,9 +70,9 @@ class PokemonF():
             jsonReturn = {
                 "image": dados["sprites"]["front_default"],
                 "nome": dados["forms"][0]["name"],
-                "ability": ability,
-                "types": type,
-                "moves":moves
+                # "ability": ability,
+                # "types": type,
+                # "moves":moves
             }
             allPokemon.append(jsonReturn)
 
