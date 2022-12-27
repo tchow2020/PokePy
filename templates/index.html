@@ -42,6 +42,9 @@
             <img class="poke-image" src='{{ pokemon["image"] }}' />
             <div class="poke-info">
               <p>{{ pokemon["nome"] }}</p>
+              <div class="type">
+                <span>{{pokemon["types"] }}</span>
+              </div>
             </div>
           </div>
           {% endfor %}

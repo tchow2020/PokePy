@@ -70,8 +70,8 @@ class PokemonF():
             jsonReturn = {
                 "image": dados["sprites"]["front_default"],
                 "nome": dados["forms"][0]["name"],
+                "types": type,
                 # "ability": ability,
-                # "types": type,
                 # "moves":moves
             }
             allPokemon.append(jsonReturn)
